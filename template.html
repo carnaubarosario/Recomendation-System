@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="C:\Users\peixe\Desktop\IA 2\templates\social.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #BF81E7;
+            color: #495057;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #1db954;
+        }
+
+        .card {
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 10px;
+        }
+
+        .card-title {
+            color: #1db954;
+        }
+
+        .btn-primary {
+            background-color: #1db954;
+            border-color: #1db954;
+        }
+
+        .btn-primary:hover {
+            background-color: #14863f;
+            border-color: #14863f;
+        }
+
+        link[rel="icon"] {
+            filter: invert(1);
+        }
+    </style>
+    <title>Recomendações de Música</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Recomendações de Música</h1>
+
+        <form method="post">
+            <div class="form-group">
+                <label for="track_name">Nome da Música</label>
+                <input type="text" class="form-control" id="track_name" name="track_name" required>
+            </div>
+            <div class="form-group">
+                <label for="artist_name">Nome do Artista</label>
+                <input type="text" class="form-control" id="artist_name" name="artist_name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Obter Recomendações</button>
+        </form>
+
+        <!-- Lista de recomendações aqui -->
+        {% for track in recommended_tracks %}
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ track.name }} by {{ track.artist }}</h5>
+                    <!-- Adicione mais informações da faixa, se desejar -->
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

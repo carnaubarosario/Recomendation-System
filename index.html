@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Recommender</title>
+</head>
+<body>
+    <h1>Spotify Recommender</h1>
+    <form method="post">
+        <label for="track_name">Nome da Música:</label>
+        <input type="text" name="track_name" required>
+        <br>
+        <label for="artist_name">Nome do Artista:</label>
+        <input type="text" name="artist_name">
+        <br>
+        <input type="submit" value="Obter Recomendações">
+    </form>
+
+    {% if recommended_tracks %}
+        <h2>Recomendações:</h2>
+        <ul>
+            {% for track in recommended_tracks %}
+                <li>{{ track['name'] }} by {{ track['artist'] }} (Genre: {{ ', '.join(track['genre']) }})</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
